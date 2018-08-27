@@ -1,0 +1,20 @@
+step 1 : create new project by Angular CLI by "ng new application_name"
+step 2 : setup bootstrap in project used node command "npm install --save bootstrap@3"
+    - npm install --save bootstrap@3
+    - modify file angular.js
+        `
+            "styles": [
+                        "src/styles.css"
+                        ],
+        `
+                    TO
+        `
+            "styles": [
+                        "node_modules/bootstrap/dist/css/bootstrap.min.css",
+                        "src/styles.css"
+                        ],
+        `
+----
+
+command start angularJS application
+    - ng serve

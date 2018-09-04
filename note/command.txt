@@ -74,6 +74,13 @@ What is Databinding?
                         content: serverData.serverContent
                         });
                     }
+    How to get Local References on ng-content (ng-content used for send html element into component and render it on component)
+            Parent component :
+                <child-component><p #contentParagraph>data output</p></child-component>
+            Child component : 
+                @ContentChild('contentParagraph') contentParagraph:ElementRef;
+                console.log(''+this.contentParagraph.nativeElement.textContent)
+
     
 -----------------------------
     Advance case

@@ -18,3 +18,91 @@ step 2 : setup bootstrap in project used node command "npm install --save bootst
 
 command start angularJS application
     - ng serve
+
+-----
+
+What is Databinding?
+    it meaning communication between TypeScript Code(Business Logic) nad Template (HTML)
+        Output data 
+            String Interpolation ({{data}})
+                ==> {{'buttonStatus : '+enableForReset}}
+
+            Property Binding ([property]="data")
+        React to (User) Events
+
+            Event Binding ((event)="expression")
+                ==> (input) = "onUpdateStatusForReset($event)"
+                ==> (click)="onCreateUsername($event)"
+
+        Combination of Both : Two-Way-Binding([(ngModel)]="data")
+                ==> [(ngModel)]="userName"
+
+
+    About Style of component
+        [ngStyle]="{'backgroundColor': getColor()}" ====> Config css style for this element
+        [ngClass]="{online: serverStatus === 'online'}"
+            ====> Add Class for this element,Example if serverStatus has equal 'online' return true 
+                    {online: true} online is css class.
+
+    How to use Local  References of component
+        html ==> <div class="panel-heading" #heading>{{ name }}</div>
+        solution 1 : .ts ==>  @ViewChild('heading') header : ElementRef;
+        solution 2 : .html (click)="onAdd(heading)"
+
+    How to pass value from parent component to child component
+        Parent (app.component) .html ==> <app-server-element  [srvElement]="serverElement" >
+        Child (server-element.component) .ts : @Input('srvElement') element: { type: string, name: string, content: string };
+
+    How to return value from child component to parent
+            Child component :
+                    @Output() serverCreated = new EventEmitter<{ serverName: string, serverContent: string }>();
+                    onAddServer(nameInput : HTMLInputElement) {
+                        this.serverContentInput.nativeElement.value = '222222';    
+                        this.serverCreated.emit(
+                        {
+                            serverName:nameInput.value,
+                            serverContent:this.serverContentInput.nativeElement.value
+                        });
+                    }
+            Parent component :
+                <app-cockpit (serverCreated)="onServerAdded($event)" ></app-cockpit>
+                    serverElements = [{ type: 'server', name: 'Testserver', content: 'Just a test!' }];
+                    onServerAdded(serverData: { serverName: string, serverContent: string }) {
+                        this.serverElements.push({
+                        type: 'server',
+                        name: serverData.serverName,
+                        content: serverData.serverContent
+                        });
+                    }
+    
+-----------------------------
+    Advance case
+        <div class="bd-example">
+            <button (click)="onLogging()">Display button</button>
+            <p *ngIf="showSecret">show and </p>
+            <p 
+            [ngStyle]="{'backgroundColor':i < 4?'red':'blue'}" 
+            [ngClass]="{'morethan4': i >= 4}"
+            *ngFor="let logsitem of logs;let i = index">{{logsitem}}</p>
+        </div>
+        ----------------------------
+            <a href="#" class="list-group-item clearfix" *ngFor="let recipe of recipes">
+            <div class="pull-left">
+            <h4 class="list-group-item-heading">{{recipe.name}}</h4>
+            <p class="list-group-item-text">{{recipe.description}}</p>
+            </div>
+            <span class="pull-right">
+            <img 
+            [src] = "recipe.imagePath"
+            alt="{{recipe.name}}" 
+            class="img-responsive" 
+            style="max-height:50px;">
+            </span>
+        </a>
+
+          <!--src="{{recipe.imagePath}}"-->
+          <!-- [src] = "recipe.imagePath" -->
+
+        -----
+
+

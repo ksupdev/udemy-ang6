@@ -1,11 +1,16 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12">
+      <app-game-control (serverCreated)="onResultRecieved($event)" ></app-game-control>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-6">
+        <app-odd [dataOutput] = "displayOutput" ></app-odd>
+    </div>
+    <div class="col-xs-6">
+        <app-even [dataOutput] = "displayOutput" ></app-even>
+    </div>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-
-</ul>
-

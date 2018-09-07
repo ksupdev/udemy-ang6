@@ -15,6 +15,11 @@ step 2 : setup bootstrap in project used node command "npm install --save bootst
                         ],
         `
 ----
+ng g c recipes --spec false
+ng g c recipes/recipe-list --spec false
+ng g c recipes/recipe-detail --spec false
+ng g c recipes/recipe-list/recipe-item --spec false
+----
 
 command start angularJS application
     - ng serve

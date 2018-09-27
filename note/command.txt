@@ -24,6 +24,11 @@ ng g c recipes/recipe-list/recipe-item --spec false
 command start angularJS application
     - ng serve
 
+---- Fully Understanding the Component Selector
+    - @Component({selector:'app-servers'})  ===========> <app-server></app-server>
+    - @Component({selector:'[app-servers]'})  ===========> <div app-server></div>
+    - @Component({selector:'.app-servers'})  ===========> <div class="app-server"></div>
+
 -----
 
 What is Databinding?

@@ -123,3 +123,6 @@ What is Databinding?
         -----
 
 
+https://dzone.com/articles/understanding-output-and-eventemitter-in-angular
+
+https://www.c-sharpcorner.com/article/angular-one-and-two-way-data-bindings-with-examples/

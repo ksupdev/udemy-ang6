@@ -1,0 +1,7 @@
+https://stackoverflow.com/questions/44525746/global-angular-cli-version-greater-than-local-version
+https://www.sitepoint.com/beginners-guide-node-package-manager/
+https://medium.com/@stalonadsl948/dependencies-vs-devdependencies-926e096a3dee
+
+
+npm ?
+ng ?
